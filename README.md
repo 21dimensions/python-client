@@ -4,7 +4,7 @@
 
 ### Install
 ```
-
+pip install easyeasy
 ```
 
 ### Initialize

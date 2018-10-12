@@ -5,17 +5,17 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="easyeasy",
-    version="1.0.0",
+    version="1.0.1",
     author="EasyEasy.io",
-    author_email="info@easyeasy.io",
+    author_email="feedback@easyeasy.io",
     description="Client for EasyEasy.io cloud database",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/EasyEasyio/python-client",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: ISC License (ISCL)",
         "Operating System :: OS Independent",
     ],
 )
