@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="easyeasy",
-    version="1.0.1",
+    version="1.0.2",
     author="EasyEasy.io",
     author_email="feedback@easyeasy.io",
     description="Client for EasyEasy.io cloud database",

@@ -15,7 +15,7 @@ cat.age = 1.5
 cat.interests = ["play", "eat", "discover"]
 
 # initialize client
-client = Client("bc420813-17d9-47fa-9d29-8bd6a1207f8a")
+client = Client("e241daea-cb57-4a39-95bc-30de055dda7d", "http://localhost:3333/rest")
 
 # add object. entity name will be inferred from class name
 id = client.add(cat)
@@ -42,12 +42,16 @@ client.update(cat)
 cats_collection = client.get(Cat)
 
 # filtering
-cats_collection = client.get(Cat, filters={'age': 1.5})  # get 1.5 years old cats
-cats_collection = client.get(Cat, filters={'age_gt': 1.0})  # cats older than 1 year
-cats_collection = client.get(Cat, filters={"name_like": "Sa*"})  # wildcard
+cats_collection = client.get(Cat, query={'age': 1.5})  # get 1.5 years old cats
+cats_collection = client.get(Cat, query={'age_gt': 1.0})  # cats older than 1 year
+cats_collection = client.get(Cat, query={"name_like": "Sa*"})  # wildcard
 
 # paging
-cats_collection = client.get(Cat, filters={"_start": "10", "_count": 10})  # wildcard
+cats_collection = client.get(Cat, query={"_start": "10", "_count": 10})
+
+# ordering
+cats_collection = client.get(Cat, query={"_orderby":"age"})
+cats_collection = client.get(Cat, query={"_orderbydesc":"age"})
 
 # learn more about filtering operators at: http://easyeasy.io/docs#/operators
 

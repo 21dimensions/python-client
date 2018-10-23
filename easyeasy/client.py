@@ -62,14 +62,14 @@ class Client:
 
         response.raise_for_status()
 
-    def get(self, entity_class=None, entity_name=None, filters=None):
+    def get(self, entity_class=None, entity_name=None, query=None):
         """
         get objects collection. Entity name will be inferred from entity class name(class Cat - cat) or you can specify entity_name explicitly. At least one of them should be specified.
         """
         filtering_str = ""
-        if filters is not None:
+        if query is not None:
             filtering_str = "&".join(
-                [str(k)+"="+str(filters[k]) for k in filters])
+                [str(k)+"="+str(query[k]) for k in query])
 
         response = requests.get(self.__get_url(self.__get_entity_name(entity_class, entity_name)) + "?" + filtering_str,
                                 headers=self.__get_headers())

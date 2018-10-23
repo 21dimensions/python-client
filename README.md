@@ -56,12 +56,16 @@ client.update(cat)
 cats_collection = client.get(Cat)
 
 # filtering
-cats_collection = client.get(Cat, filters={'age': 1.5})  # get 1.5 years old cats
-cats_collection = client.get(Cat, filters={'age_gt': 1.0})  # cats older than 1 year
-cats_collection = client.get(Cat, filters={"name_like": "Sa*"})  # wildcard
+cats_collection = client.get(Cat, query={'age': 1.5})  # get 1.5 years old cats
+cats_collection = client.get(Cat, query={'age_gt': 1.0})  # cats older than 1 year
+cats_collection = client.get(Cat, query={"name_like": "Sa*"})  # wildcard
 
 # paging
-cats_collection = client.get(Cat, filters={"_start": "10", "_count": 10})  # wildcard
+cats_collection = client.get(Cat, query={"_start": "10", "_count": 10})
+
+# ordering
+cats_collection = client.get(Cat, query={"_orderby":"age"})
+cats_collection = client.get(Cat, query={"_orderbydesc":"age"})
 
 # learn more about filtering operators at: http://easyeasy.io/docs#/operators
 
